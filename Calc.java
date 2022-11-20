@@ -2,10 +2,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Calc {
-    public static void main(String args) throws IOException {
-                Main.calc();
-
-
+    public static void main(String[] args) throws IOException {
+                    String input;
+            Scanner in = new Scanner(System.in);
+            System.out.println("введите выражение");
+            input = in.nextLine();
+            Main.calc(input);
 
     }
 }
@@ -15,9 +17,7 @@ class Main {
         int itog = 0;
         int x;
         int y;
-        Scanner in = new Scanner(System.in);
-        System.out.println("введите выражение");
-        input = in.nextLine();
+
         String[] strArrays = input.split(" ");   // переводит строку в массив строк
 
         if (strArrays.length == 3) { //если длина ровна 3м
@@ -57,12 +57,11 @@ class Main {
                     itogStr = Number.toRome(itog);
                     System.out.println(itogStr);
                 } else throw new IOException("результат в римской СС может быть только положительным");
-            } else itogStr= String.valueOf(itog);
-
+            } else {
+                itogStr = String.valueOf(itog);
+                System.out.println(itogStr);
+            }
         } else throw new IOException("некорректный ввод выражения ");
         return itogStr;
     }
 }
-
-
-
